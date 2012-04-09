@@ -1,16 +1,21 @@
 package tddbyexample.ch5;
 
-abstract class Money {
-abstract Money times(int multiplier);
+public class Money {
+	protected int amount;
 	protected String currency;
-	String currency() {
+	Money(int amount, String currency) {
+		this.amount = amount;
+		this.currency = currency;
+	}
+	Money times(int multiplier) {
+		return new Money(amount * multiplier, currency);
+	}
+	public String currency() {
 		return currency;
 	}
-	protected int amount;
 	public boolean equals(Object object) {
-		Money money= (Money) object;
-		return amount == money.amount
-		&& getClass().equals(money.getClass());	
+		Money money = (Money) object;
+		return amount == money.amount && currency().equals(money.currency());
 	}
 	static Money dollar(int amount) {
 		return new Dollar(amount, "USD");
@@ -18,9 +23,4 @@ abstract Money times(int multiplier);
 	static Money franc(int amount) {
 		return new Franc(amount, "CHF");
 	}
-	Money(int amount, String currency) {
-		this.amount = amount;
-		this.currency = currency;
-	}
 }
-
