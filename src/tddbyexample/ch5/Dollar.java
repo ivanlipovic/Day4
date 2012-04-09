@@ -1,15 +1,12 @@
 package tddbyexample.ch5;
 
 public class Dollar extends Money {
-	String currency() {
-		return "USD";
-	}
-	Dollar(int amount){
-		this.amount= amount;
+	Dollar(int amount, String currency){
+		super(amount, currency);
 	}
 
 	Money times(int multiplier) {
-		return new Dollar(amount * multiplier);
+		return Money.dollar(amount * multiplier);
 	}
 
 	public boolean equals(Object object) {

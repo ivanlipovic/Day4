@@ -1,15 +1,12 @@
 package tddbyexample.ch5;
 
 public class Franc extends Money {
-    String currency() {
-    	return "CHF";
-    }
-    Franc(int amount){
-        this.amount= amount;
+    Franc(int amount, String currency){
+    	super(amount, currency);
     }
     
     Money times(int multiplier) {
-      return new Franc(amount * multiplier);
+      return Money.franc(amount * multiplier);
     }
 
 public boolean equals(Object object) {
