@@ -1,7 +1,9 @@
 package tddbyexample.ch5;
 
 public class Dollar extends Money {
-
+	String currency() {
+		return "USD";
+	}
 	Dollar(int amount){
 		this.amount= amount;
 	}

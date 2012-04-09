@@ -1,6 +1,7 @@
 package tddbyexample.ch5;
 
 abstract class Money {
+abstract String currency();
 abstract Money times(int multiplier);
 	protected int amount;
 	public boolean equals(Object object) {
